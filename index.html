@@ -6,17 +6,36 @@
       h1{
         color: #DDD;
         font-size:64pt;
+        position: relative;
+        top: 200px;
+        width:50px;
+      }
+      body{
+        text-align: center;
+      }
+      #status{
+        transition: top 100ms ;
+        transition: left 100ms ;
       }
     </style>
   </head>
   <body>
-    <script>
-
-    </script>
     <div>
       <div>
-        <h1 title="Not here">404</h1>
+        <h1 title="Not here" id="status">404</h1>
       </div>
     </div>
+    <script>
+    // move 404 opposite of the mouse in a smooth matter
+    const notHere404 = document.getElementById('status');
+    window.onmousemove = function (e) {
+      var x = e.clientX,
+      y = e.clientY;
+      // lower the y the higher it goes, the higher the y the lower it goes
+      notHere404.style.top = (y) + 'px';
+      notHere404.style.left = (x) + 'px';
+      console.log(x, y)
+    };
+    </script>
   </body>
 </html>
